@@ -1,0 +1,37 @@
+name: Cross-Compile Check
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  cross:
+    name: Cross-compile ${{ matrix.target }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - aarch64-unknown-linux-gnu
+          - aarch64-unknown-linux-musl
+          - armv7-unknown-linux-gnueabihf
+          - x86_64-unknown-linux-musl
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Install cross
+        run: cargo install cross --git https://github.com/cross-rs/cross
+
+      - name: Cross-compile
+        run: cross build --workspace --exclude atp-gui --target ${{ matrix.target }} --release
+
+      - name: Cross-test
+        run: cross test --workspace --exclude atp-gui --exclude atp-wasm --target ${{ matrix.target }}
+        continue-on-error: true

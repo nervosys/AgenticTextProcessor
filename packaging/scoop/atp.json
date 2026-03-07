@@ -1,0 +1,41 @@
+{
+  "version": "1.1.0",
+  "description": "Agentic Text Processor — an agentic-first successor to grep, sed, and awk",
+  "homepage": "https://github.com/nervosys/AgenticTextProcessor",
+  "license": "AGPL-3.0-only",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/nervosys/AgenticTextProcessor/releases/download/v1.1.0/atp-v1.1.0-x86_64-pc-windows-msvc.zip",
+      "hash": "PLACEHOLDER_SHA256_X86_64_WINDOWS",
+      "bin": [
+        "atp.exe",
+        "atp-grep.exe",
+        "atp-sed.exe",
+        "atp-awk.exe"
+      ]
+    },
+    "arm64": {
+      "url": "https://github.com/nervosys/AgenticTextProcessor/releases/download/v1.1.0/atp-v1.1.0-aarch64-pc-windows-msvc.zip",
+      "hash": "PLACEHOLDER_SHA256_AARCH64_WINDOWS",
+      "bin": [
+        "atp.exe",
+        "atp-grep.exe",
+        "atp-sed.exe",
+        "atp-awk.exe"
+      ]
+    }
+  },
+  "checkver": {
+    "github": "https://github.com/nervosys/AgenticTextProcessor"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/nervosys/AgenticTextProcessor/releases/download/v$version/atp-v$version-x86_64-pc-windows-msvc.zip"
+      },
+      "arm64": {
+        "url": "https://github.com/nervosys/AgenticTextProcessor/releases/download/v$version/atp-v$version-aarch64-pc-windows-msvc.zip"
+      }
+    }
+  }
+}

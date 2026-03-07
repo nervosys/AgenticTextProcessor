@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	cargo build --release --workspace
+
+override_dh_auto_install:
+	install -Dm755 target/release/atp $(DESTDIR)/usr/bin/atp
+	install -Dm755 target/release/atp-grep $(DESTDIR)/usr/bin/atp-grep
+	install -Dm755 target/release/atp-sed $(DESTDIR)/usr/bin/atp-sed
+	install -Dm755 target/release/atp-awk $(DESTDIR)/usr/bin/atp-awk
+
+override_dh_auto_test:
+	cargo test --workspace
+
+override_dh_auto_clean:
+	cargo clean

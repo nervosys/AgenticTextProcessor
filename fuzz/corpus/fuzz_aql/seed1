@@ -1,0 +1,1 @@
+find "hello" | count

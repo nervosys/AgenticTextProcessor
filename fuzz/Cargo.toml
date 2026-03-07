@@ -1,0 +1,58 @@
+[package]
+name = "atp-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+atp-core = { path = "../atp-core" }
+serde_json = "1"
+toml = "0.8"
+
+[[bin]]
+name = "fuzz_aql"
+path = "fuzz_targets/fuzz_aql.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_grep"
+path = "fuzz_targets/fuzz_grep.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_sed"
+path = "fuzz_targets/fuzz_sed.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_pipeline"
+path = "fuzz_targets/fuzz_pipeline.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_config"
+path = "fuzz_targets/fuzz_config.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_diff"
+path = "fuzz_targets/fuzz_diff.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_optimizer"
+path = "fuzz_targets/fuzz_optimizer.rs"
+test = false
+doc = false
+
+[workspace]

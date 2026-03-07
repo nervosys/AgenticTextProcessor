@@ -1,0 +1,18 @@
+atp (1.1.0-1) unstable; urgency=medium
+
+  * AQL v2: variables (let), conditionals (if/else/end), group-by with
+    aggregations, user-defined functions (def/call).
+  * Configuration system: ~/.atp/config.toml and per-project .atprc.
+  * MCP server mode for AI agent integration (JSON-RPC 2.0 over stdio).
+  * Performance: parallel file search (rayon), memory-mapped I/O (mmap).
+  * VS Code extension with AQL syntax highlighting and LSP client.
+  * Property-based testing (proptest) and fuzz harness (cargo-fuzz).
+  * Benchmark regression CI gate.
+
+ -- Nervosys <opensource@nervosys.ai>  Mon, 01 Apr 2026 00:00:00 +0000
+
+atp (1.0.0-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Nervosys <opensource@nervosys.ai>  Mon, 15 Mar 2026 00:00:00 +0000

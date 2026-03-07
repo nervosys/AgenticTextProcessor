@@ -1,0 +1,50 @@
+# Build artifacts
+/target/
+**/*.rs.bk
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Environment and secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.cert
+
+# Debug
+*.pdb
+
+# Package manager
+Cargo.lock
+
+# Coverage
+*.profraw
+*.profdata
+lcov.info
+tarpaulin-report.html
+coverage/
+
+# Documentation build output
+docs/book/
+
+# WASM build output
+pkg/
+*.wasm
+
+# Temporary files
+*.tmp
+*.bak
+*.log

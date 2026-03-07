@@ -1,0 +1,26 @@
+Source: atp
+Section: utils
+Priority: optional
+Maintainer: Nervosys <opensource@nervosys.ai>
+Build-Depends: debhelper-compat (= 13), cargo, rustc (>= 1.75.0)
+Standards-Version: 4.6.2
+Homepage: https://github.com/nervosys/AgenticTextProcessor
+Vcs-Browser: https://github.com/nervosys/AgenticTextProcessor
+Vcs-Git: https://github.com/nervosys/AgenticTextProcessor.git
+Rules-Requires-Root: no
+
+Package: atp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Agentic Text Processor — successor to grep, sed, and awk
+ ATP is an agentic-first text processing toolkit that unifies grep, sed,
+ and awk functionality with a modern query language (AQL), structured
+ JSON output, pipeline composition, and AI agent integration via MCP.
+ .
+ Features:
+  - Unified CLI with 19 subcommands
+  - AQL query language with variables, control flow, and user-defined functions
+  - POSIX-compatible drop-in binaries (atp-grep, atp-sed, atp-awk)
+  - MCP server mode for AI agent integration
+  - VS Code extension with AQL syntax highlighting
+  - Regulatory compliance (FIPS, NIST SP 800-53, CMMC 2.0)
