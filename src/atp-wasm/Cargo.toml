@@ -1,0 +1,27 @@
+[package]
+name = "atp-wasm"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme.workspace = true
+keywords.workspace = true
+categories.workspace = true
+rust-version.workspace = true
+description = "WebAssembly bindings for the Agentic Text Processor"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+atp-core = { path = "../atp-core", version = "2.0.0" }
+wasm-bindgen = "0.2"
+serde = { workspace = true }
+serde_json = { workspace = true }
+regex = { workspace = true }
+anyhow = { workspace = true }
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"

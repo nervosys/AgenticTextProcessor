@@ -1,11 +1,13 @@
-# Agentic Text Processor (ATP)
+<p align="center">
+  <img src="media/banner_logo.png" alt="ATP logo" width="100%">
+</p>
 
 [![Version](https://img.shields.io/badge/version-2.0.0-blue)](CHANGELOG.md)
 [![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0--only-blue)](LICENSE)
 [![Rust](https://img.shields.io/badge/rust-1.75%2B-orange)](https://www.rust-lang.org)
 [![Tests](https://img.shields.io/badge/tests-1235%20passing-brightgreen)](#testing)
 
-**An agentic-first single-program successor to the `grep`, `sed`, `awk` triad.**
+<h3 align="center">Agentic-first single-program successor to the `grep`, `sed`, `awk` triad.</h3>
 
 ATP is designed from the ground up for AI agent operation while remaining fully usable by humans through CLI, TUI, GUI, WebAssembly, and Language Server Protocol interfaces.
 
@@ -103,16 +105,16 @@ ATP inherits the battle-tested semantics of grep/sed/awk and adds **strongly typ
 cargo build --release
 
 # Install CLI
-cargo install --path atp-cli
+cargo install --path src/atp-cli
 
 # Install TUI
-cargo install --path atp-tui
+cargo install --path src/atp-tui
 
 # Install GUI
-cargo install --path atp-gui
+cargo install --path src/atp-gui
 
 # Build WASM package (requires wasm-pack)
-wasm-pack build atp-wasm --target web
+wasm-pack build src/atp-wasm --target web
 
 # Generate shell completions (bash, zsh, fish, powershell, elvish)
 atp completions bash > ~/.local/share/bash-completion/completions/atp
@@ -351,14 +353,14 @@ See [SYNTAX.md](SYNTAX.md) for the complete grammar, stage reference, and compar
 
 ### Crate Structure (6 Crates)
 
-| Crate          | Binary                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| -------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Crate          | Binary                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| -------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`atp-core`** | *(library)*                             | Core library: 79 modules — engines, AQL, ontology, output, compliance, plugins, telemetry, tracing, streaming, code intel, index, DAP, WASM, notebooks, distributed, cache, diff, profile, schema, optimizer, rate-limit, git-search, snapshot, task-queue, patterns, checkpoint, log-sink, redact, dep-graph, template, workspace, hooks, metrics, rule-engine, formatter, scheduler, encryption, changelog, linter, data-table, rewrite, archive, report, converter, statistics, state-machine, i18n, batch, annotation, highlight, timeline, tree, validator, codec, fingerprint, markdown, sampler, tokenizer, spellcheck, calendar, compress, color, macro-engine, fuzzy, summarizer, casing, text-wrap, mime, graph, shell, url, table-extract, emoji |
-| **`atp-cli`**  | `atp`, `atp-grep`, `atp-sed`, `atp-awk` | CLI with 28 subcommands + POSIX-compatible binaries                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **`atp-tui`**  | `atp-tui`                               | Terminal UI with 10 tabs: Search, Transform, Analyze, Pipeline, AQL, Symbols, Index, Debug, Notebook, Distributed                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **`atp-gui`**  | `atp-gui`                               | Desktop GUI with visual search, pipeline builder, and results viewer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **`atp-wasm`** | *(npm package)*                         | WebAssembly bindings for browser and Node.js usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **`atp-lsp`**  | `atp-lsp`                               | Language Server Protocol v2: diagnostics, hover, completion, workspace symbols, notebook support                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **`atp-cli`**  | `atp`, `atp-grep`, `atp-sed`, `atp-awk` | CLI with 28 subcommands + POSIX-compatible binaries                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **`atp-tui`**  | `atp-tui`                               | Terminal UI with 10 tabs: Search, Transform, Analyze, Pipeline, AQL, Symbols, Index, Debug, Notebook, Distributed                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **`atp-gui`**  | `atp-gui`                               | Desktop GUI with visual search, pipeline builder, and results viewer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **`atp-wasm`** | *(npm package)*                         | WebAssembly bindings for browser and Node.js usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **`atp-lsp`**  | `atp-lsp`                               | Language Server Protocol v2: diagnostics, hover, completion, workspace symbols, notebook support                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ---
 
@@ -757,7 +759,7 @@ const transformed = transform('s/old/new/g', 'old text here', '{}');
 const output = query('find "TODO" ignore_case | count', 'input text', '{}');
 ```
 
-Build with: `wasm-pack build atp-wasm --target web`
+Build with: `wasm-pack build src/atp-wasm --target web`
 
 ---
 

@@ -4,7 +4,7 @@
 
 ```
 AgenticTextProcessor/
-├── atp-core/           # Core library
+├── src/atp-core/           # Core library
 │   ├── src/
 │   │   ├── engine/     # Processing engines
 │   │   │   ├── aql.rs  # AQL parser & interpreter
@@ -23,14 +23,14 @@ AgenticTextProcessor/
 │   │   └── traversal.rs # File/directory traversal
 │   ├── benches/        # Criterion benchmarks
 │   └── tests/          # Integration tests
-├── atp-cli/            # CLI binary
+├── src/atp-cli/            # CLI binary
 │   ├── src/
 │   │   ├── main.rs     # Entry point & subcommand dispatch
 │   │   └── commands/   # Per-command handlers
-├── atp-tui/            # Terminal UI (ratatui)
-├── atp-gui/            # Desktop GUI (egui/eframe)
-├── atp-wasm/           # WebAssembly bindings
-├── atp-lsp/            # LSP server for AQL
+├── src/atp-tui/            # Terminal UI (ratatui)
+├── src/atp-gui/            # Desktop GUI (egui/eframe)
+├── src/atp-wasm/           # WebAssembly bindings
+├── src/atp-lsp/            # LSP server for AQL
 ├── docs/               # mdBook documentation
 └── .github/workflows/  # CI/CD pipelines
 ```

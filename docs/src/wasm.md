@@ -5,7 +5,7 @@ The `atp-wasm` crate provides WebAssembly bindings for using ATP in the browser.
 ## Building
 
 ```bash
-cd atp-wasm
+cd src/atp-wasm
 wasm-pack build --target web
 ```
 

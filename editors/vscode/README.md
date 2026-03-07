@@ -13,7 +13,7 @@ Provides syntax highlighting and LSP (Language Server Protocol) support for
 
 ## Requirements
 
-- Install `atp` (`cargo install --path atp-cli`) to get the `atp-lsp` binary.
+- Install `atp` (`cargo install --path src/atp-cli`) to get the `atp-lsp` binary.
 - Or set `atp.lspPath` in VS Code settings to the full path.
 
 ## Extension Settings

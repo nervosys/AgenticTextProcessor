@@ -45,21 +45,21 @@ cargo bench -p atp-core
 
 ## Adding a New Engine Feature
 
-1. Implement the feature in `atp-core/src/engine/`
-2. Add output types to `atp-core/src/output.rs` if needed
-3. Expose via CLI in `atp-cli/src/commands/`
-4. Add WASM binding in `atp-wasm/src/lib.rs` if applicable
+1. Implement the feature in `src/atp-core/src/engine/`
+2. Add output types to `src/atp-core/src/output.rs` if needed
+3. Expose via CLI in `src/atp-cli/src/commands/`
+4. Add WASM binding in `src/atp-wasm/src/lib.rs` if applicable
 5. Write unit tests in the module
-6. Add integration tests in `atp-core/tests/integration.rs`
-7. Add benchmarks in `atp-core/benches/engines.rs`
+6. Add integration tests in `src/atp-core/tests/integration.rs`
+7. Add benchmarks in `src/atp-core/benches/engines.rs`
 
 ## Adding an AQL Stage
 
-1. Add the variant to `AqlStage` enum in `atp-core/src/engine/aql.rs`
+1. Add the variant to `AqlStage` enum in `src/atp-core/src/engine/aql.rs`
 2. Implement parsing in the `parse_stage` function
 3. Implement execution in the `execute_stage` function
 4. Add `describe()` output for `--explain`
-5. Add LSP keyword to `atp-lsp/src/server.rs`
+5. Add LSP keyword to `src/atp-lsp/src/server.rs`
 6. Add tests
 
 ## License

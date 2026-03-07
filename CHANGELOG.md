@@ -24,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- `atp-core/src/lib.rs` now exports 79 modules (was 69) with full re-exports.
+- `src/atp-core/src/lib.rs` now exports 79 modules (was 69) with full re-exports.
 - Version bumped to 2.0.0 (major version bump for 10 new modules milestone).
 ## [1.9.0] — 2026-09-XX
 
@@ -45,7 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- `atp-core/src/lib.rs` now exports 69 modules (was 59) with full re-exports.
+- `src/atp-core/src/lib.rs` now exports 69 modules (was 59) with full re-exports.
 - Version bumped to 1.9.0.
 
 ## [1.8.0] — 2026-09-XX
@@ -67,7 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- `atp-core/src/lib.rs` now exports 59 modules (was 49) with full re-exports.
+- `src/atp-core/src/lib.rs` now exports 59 modules (was 49) with full re-exports.
 - Version bumped to 1.8.0.
 
 ## [1.7.0] — 2026-09-XX
@@ -89,7 +89,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- `atp-core/src/lib.rs` now exports 49 modules (was 39) with full re-exports.
+- `src/atp-core/src/lib.rs` now exports 49 modules (was 39) with full re-exports.
 - Version bumped to 1.7.0.
 
 ## [1.6.0] — 2026-09-XX
@@ -111,7 +111,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- `atp-core/src/lib.rs` now exports 39 modules (was 29) with full re-exports.
+- `src/atp-core/src/lib.rs` now exports 39 modules (was 29) with full re-exports.
 - Architecture diagram updated with new module layer.
 - Version bumped to 1.6.0.
 
@@ -135,7 +135,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- `atp-core/src/lib.rs` now exports 29 modules (was 21) with full re-exports.
+- `src/atp-core/src/lib.rs` now exports 29 modules (was 21) with full re-exports.
 - Architecture diagram updated with new module layer.
 - Version bumped to 1.5.0.
 

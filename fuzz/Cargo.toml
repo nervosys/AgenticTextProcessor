@@ -9,7 +9,7 @@ cargo-fuzz = true
 
 [dependencies]
 libfuzzer-sys = "0.4"
-atp-core = { path = "../atp-core" }
+atp-core = { path = "../src/atp-core" }
 serde_json = "1"
 toml = "0.8"
 

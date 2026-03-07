@@ -121,7 +121,7 @@ jobs:
           targets: wasm32-unknown-unknown
       - name: Install wasm-pack
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-      - run: wasm-pack build atp-wasm --target web --out-dir ../pkg
+      - run: wasm-pack build src/atp-wasm --target web --out-dir ../../pkg
       - uses: actions/upload-artifact@v4
         with:
           name: atp-wasm-pkg

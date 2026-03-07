@@ -5,7 +5,7 @@ The `atp-lsp` crate provides a Language Server Protocol (LSP) server for AQL fil
 ## Installation
 
 ```bash
-cargo install --path atp-lsp
+cargo install --path src/atp-lsp
 ```
 
 ## Features

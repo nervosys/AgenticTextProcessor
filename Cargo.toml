@@ -1,5 +1,12 @@
 [workspace]
-members = ["atp-core", "atp-cli", "atp-tui", "atp-gui", "atp-wasm", "atp-lsp"]
+members = [
+    "src/atp-core",
+    "src/atp-cli",
+    "src/atp-tui",
+    "src/atp-gui",
+    "src/atp-wasm",
+    "src/atp-lsp",
+]
 resolver = "2"
 
 [workspace.package]

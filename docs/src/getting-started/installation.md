@@ -11,16 +11,16 @@ cd AgenticTextProcessor
 cargo build --release
 
 # Install CLI
-cargo install --path atp-cli
+cargo install --path src/atp-cli
 
 # Install TUI
-cargo install --path atp-tui
+cargo install --path src/atp-tui
 
 # Install GUI
-cargo install --path atp-gui
+cargo install --path src/atp-gui
 
 # Install LSP server
-cargo install --path atp-lsp
+cargo install --path src/atp-lsp
 ```
 
 Binaries produced: `atp`, `atp-grep`, `atp-sed`, `atp-awk`, `atp-tui`, `atp-gui`, `atp-lsp`.
@@ -59,7 +59,7 @@ atp manpage --dir /usr/local/share/man/man1
 
 ```bash
 # Build the WASM package
-cd atp-wasm
+cd src/atp-wasm
 wasm-pack build --target web
 ```
 

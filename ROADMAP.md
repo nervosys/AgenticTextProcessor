@@ -13,15 +13,15 @@
 
 | Feature                                                               | File                              | Status |
 | --------------------------------------------------------------------- | --------------------------------- | ------ |
-| Grep engine (14 config options, multi-pattern, context, byte-offsets) | `atp-core/src/engine/grep.rs`     | ✅ Done |
-| Sed engine (5 command types, address-range, in-place, backup)         | `atp-core/src/engine/sed.rs`      | ✅ Done |
-| Awk engine (12 expression types, 9 conditions, 8 aggregations)        | `atp-core/src/engine/awk.rs`      | ✅ Done |
-| Pipeline engine (9 stage types, DSL parser, YAML input)               | `atp-core/src/engine/pipeline.rs` | ✅ Done |
-| AQL engine (tokenizer, parser, 15 stage types, evaluator)             | `atp-core/src/engine/aql.rs`      | ✅ Done |
-| File traversal with gitignore, globs, depth limits                    | `atp-core/src/traversal.rs`       | ✅ Done |
-| Context extraction (function, block, indent, lines, file)             | `atp-core/src/context.rs`         | ✅ Done |
-| Output formatting (JSON, JSON-pretty, YAML, CSV, Human)               | `atp-core/src/output.rs`          | ✅ Done |
-| Self-describing ontology (capabilities, commands, types, errors)      | `atp-core/src/ontology.rs`        | ✅ Done |
+| Grep engine (14 config options, multi-pattern, context, byte-offsets) | `src/atp-core/src/engine/grep.rs`     | ✅ Done |
+| Sed engine (5 command types, address-range, in-place, backup)         | `src/atp-core/src/engine/sed.rs`      | ✅ Done |
+| Awk engine (12 expression types, 9 conditions, 8 aggregations)        | `src/atp-core/src/engine/awk.rs`      | ✅ Done |
+| Pipeline engine (9 stage types, DSL parser, YAML input)               | `src/atp-core/src/engine/pipeline.rs` | ✅ Done |
+| AQL engine (tokenizer, parser, 15 stage types, evaluator)             | `src/atp-core/src/engine/aql.rs`      | ✅ Done |
+| File traversal with gitignore, globs, depth limits                    | `src/atp-core/src/traversal.rs`       | ✅ Done |
+| Context extraction (function, block, indent, lines, file)             | `src/atp-core/src/context.rs`         | ✅ Done |
+| Output formatting (JSON, JSON-pretty, YAML, CSV, Human)               | `src/atp-core/src/output.rs`          | ✅ Done |
+| Self-describing ontology (capabilities, commands, types, errors)      | `src/atp-core/src/ontology.rs`        | ✅ Done |
 
 ---
 
@@ -31,16 +31,16 @@
 
 | Command     | Aliases                          | File                                | Status |
 | ----------- | -------------------------------- | ----------------------------------- | ------ |
-| `search`    | `s`, `grep`, `find`              | `atp-cli/src/commands/search.rs`    | ✅ Done |
-| `transform` | `t`, `sed`, `replace`            | `atp-cli/src/commands/transform.rs` | ✅ Done |
-| `analyze`   | `a`, `awk`, `fields`             | `atp-cli/src/commands/analyze.rs`   | ✅ Done |
-| `pipeline`  | `pipe`, `chain`                  | `atp-cli/src/commands/pipeline.rs`  | ✅ Done |
-| `query`     | `q`, `aql`, `run`                | `atp-cli/src/commands/query.rs`     | ✅ Done |
-| `ontology`  | `onto`, `capabilities`, `schema` | `atp-cli/src/commands/ontology.rs`  | ✅ Done |
-| `explain`   | `x`, `preview`                   | `atp-cli/src/commands/explain.rs`   | ✅ Done |
-| `scope`     | `ls`, `files`                    | `atp-cli/src/commands/scope.rs`     | ✅ Done |
-| `validate`  | `check`                          | `atp-cli/src/commands/validate.rs`  | ✅ Done |
-| `context`   | `ctx`                            | `atp-cli/src/commands/context.rs`   | ✅ Done |
+| `search`    | `s`, `grep`, `find`              | `src/atp-cli/src/commands/search.rs`    | ✅ Done |
+| `transform` | `t`, `sed`, `replace`            | `src/atp-cli/src/commands/transform.rs` | ✅ Done |
+| `analyze`   | `a`, `awk`, `fields`             | `src/atp-cli/src/commands/analyze.rs`   | ✅ Done |
+| `pipeline`  | `pipe`, `chain`                  | `src/atp-cli/src/commands/pipeline.rs`  | ✅ Done |
+| `query`     | `q`, `aql`, `run`                | `src/atp-cli/src/commands/query.rs`     | ✅ Done |
+| `ontology`  | `onto`, `capabilities`, `schema` | `src/atp-cli/src/commands/ontology.rs`  | ✅ Done |
+| `explain`   | `x`, `preview`                   | `src/atp-cli/src/commands/explain.rs`   | ✅ Done |
+| `scope`     | `ls`, `files`                    | `src/atp-cli/src/commands/scope.rs`     | ✅ Done |
+| `validate`  | `check`                          | `src/atp-cli/src/commands/validate.rs`  | ✅ Done |
+| `context`   | `ctx`                            | `src/atp-cli/src/commands/context.rs`   | ✅ Done |
 
 ---
 
@@ -67,19 +67,19 @@
 
 | Task                                                             | File(s)                            | Status |
 | ---------------------------------------------------------------- | ---------------------------------- | ------ |
-| Add AQL validation to `validate` command                         | `atp-cli/src/commands/validate.rs` | ✅ Done |
-| Add `query`, `validate`, `context` to ontology                   | `atp-core/src/ontology.rs`         | ✅ Done |
-| Improve `explain` command (query/scope/validate/context support) | `atp-cli/src/commands/explain.rs`  | ✅ Done |
-| Fix JSONL output format (true line-delimited)                    | `atp-core/src/output.rs`           | ✅ Done |
-| TUI: implement Transform tab execution                           | `atp-tui/src/app.rs`               | ✅ Done |
-| TUI: implement Analyze tab execution                             | `atp-tui/src/app.rs`               | ✅ Done |
-| TUI: implement Pipeline tab execution                            | `atp-tui/src/app.rs`               | ✅ Done |
-| GUI: implement Analyze tab                                       | `atp-gui/src/app.rs`               | ✅ Done |
-| GUI: implement Pipeline tab                                      | `atp-gui/src/app.rs`               | ✅ Done |
-| Unit tests for awk engine                                        | `atp-core/src/engine/awk.rs`       | ✅ Done |
-| Unit tests for pipeline engine                                   | `atp-core/src/engine/pipeline.rs`  | ✅ Done |
-| Unit tests for traversal                                         | `atp-core/src/traversal.rs`        | ✅ Done |
-| Unit tests for context extraction                                | `atp-core/src/context.rs`          | ✅ Done |
+| Add AQL validation to `validate` command                         | `src/atp-cli/src/commands/validate.rs` | ✅ Done |
+| Add `query`, `validate`, `context` to ontology                   | `src/atp-core/src/ontology.rs`         | ✅ Done |
+| Improve `explain` command (query/scope/validate/context support) | `src/atp-cli/src/commands/explain.rs`  | ✅ Done |
+| Fix JSONL output format (true line-delimited)                    | `src/atp-core/src/output.rs`           | ✅ Done |
+| TUI: implement Transform tab execution                           | `src/atp-tui/src/app.rs`               | ✅ Done |
+| TUI: implement Analyze tab execution                             | `src/atp-tui/src/app.rs`               | ✅ Done |
+| TUI: implement Pipeline tab execution                            | `src/atp-tui/src/app.rs`               | ✅ Done |
+| GUI: implement Analyze tab                                       | `src/atp-gui/src/app.rs`               | ✅ Done |
+| GUI: implement Pipeline tab                                      | `src/atp-gui/src/app.rs`               | ✅ Done |
+| Unit tests for awk engine                                        | `src/atp-core/src/engine/awk.rs`       | ✅ Done |
+| Unit tests for pipeline engine                                   | `src/atp-core/src/engine/pipeline.rs`  | ✅ Done |
+| Unit tests for traversal                                         | `src/atp-core/src/traversal.rs`        | ✅ Done |
+| Unit tests for context extraction                                | `src/atp-core/src/context.rs`          | ✅ Done |
 
 ---
 
@@ -90,17 +90,17 @@
 | Task                                                      | File(s)                              | Status |
 | --------------------------------------------------------- | ------------------------------------ | ------ |
 | Audit current codebase for security posture               | —                                    | ✅ Done |
-| FIPS 180-4 SHA-256 hashing (NIST test vectors verified)   | `atp-core/src/compliance.rs`         | ✅ Done |
-| Structured audit logging (NIST SP 800-53 AU-3/AU-8)       | `atp-core/src/compliance.rs`         | ✅ Done |
-| CUI data classification markings (NIST SP 800-171)        | `atp-core/src/compliance.rs`         | ✅ Done |
-| CMMC 2.0 control mapping (12 controls across 7 domains)   | `atp-core/src/compliance.rs`         | ✅ Done |
-| Compliance report generation                              | `atp-core/src/compliance.rs`         | ✅ Done |
-| DataMarking field on AtpEnvelope                          | `atp-core/src/output.rs`             | ✅ Done |
-| Provenance input_hash activation (with_input_hash)        | `atp-core/src/output.rs`             | ✅ Done |
-| CLI `compliance` command (report/controls/integrity)      | `atp-cli/src/commands/compliance.rs` | ✅ Done |
-| Ontology: regulatory_compliance capability + command spec | `atp-core/src/ontology.rs`           | ✅ Done |
+| FIPS 180-4 SHA-256 hashing (NIST test vectors verified)   | `src/atp-core/src/compliance.rs`         | ✅ Done |
+| Structured audit logging (NIST SP 800-53 AU-3/AU-8)       | `src/atp-core/src/compliance.rs`         | ✅ Done |
+| CUI data classification markings (NIST SP 800-171)        | `src/atp-core/src/compliance.rs`         | ✅ Done |
+| CMMC 2.0 control mapping (12 controls across 7 domains)   | `src/atp-core/src/compliance.rs`         | ✅ Done |
+| Compliance report generation                              | `src/atp-core/src/compliance.rs`         | ✅ Done |
+| DataMarking field on AtpEnvelope                          | `src/atp-core/src/output.rs`             | ✅ Done |
+| Provenance input_hash activation (with_input_hash)        | `src/atp-core/src/output.rs`             | ✅ Done |
+| CLI `compliance` command (report/controls/integrity)      | `src/atp-cli/src/commands/compliance.rs` | ✅ Done |
+| Ontology: regulatory_compliance capability + command spec | `src/atp-core/src/ontology.rs`           | ✅ Done |
 | COMPLIANCE.md documentation                               | `COMPLIANCE.md`                      | ✅ Done |
-| Unit tests for compliance module (11 tests)               | `atp-core/src/compliance.rs`         | ✅ Done |
+| Unit tests for compliance module (11 tests)               | `src/atp-core/src/compliance.rs`         | ✅ Done |
 
 ---
 
@@ -110,15 +110,15 @@
 
 | Task                                                    | File(s)                       | Status |
 | ------------------------------------------------------- | ----------------------------- | ------ |
-| POSIX grep arg parser → `GrepConfig` translation        | `atp-core/src/compat.rs`      | ✅ Done |
-| POSIX sed arg parser → `SedConfig` translation          | `atp-core/src/compat.rs`      | ✅ Done |
-| POSIX awk arg/program parser → `AwkConfig` translation  | `atp-core/src/compat.rs`      | ✅ Done |
-| `atp-grep` binary (POSIX flags + typed output)          | `atp-cli/src/bin/atp_grep.rs` | ✅ Done |
-| `atp-sed` binary (POSIX flags + typed output)           | `atp-cli/src/bin/atp_sed.rs`  | ✅ Done |
-| `atp-awk` binary (POSIX flags + typed output)           | `atp-cli/src/bin/atp_awk.rs`  | ✅ Done |
-| Stdin piping support for all compat binaries            | `atp-cli/src/bin/atp_*.rs`    | ✅ Done |
-| Auto-format detection (JSON when piped, human when TTY) | `atp-cli/src/bin/atp_*.rs`    | ✅ Done |
-| Unit tests for compat parsers (22 tests)                | `atp-core/src/compat.rs`      | ✅ Done |
+| POSIX grep arg parser → `GrepConfig` translation        | `src/atp-core/src/compat.rs`      | ✅ Done |
+| POSIX sed arg parser → `SedConfig` translation          | `src/atp-core/src/compat.rs`      | ✅ Done |
+| POSIX awk arg/program parser → `AwkConfig` translation  | `src/atp-core/src/compat.rs`      | ✅ Done |
+| `atp-grep` binary (POSIX flags + typed output)          | `src/atp-cli/src/bin/atp_grep.rs` | ✅ Done |
+| `atp-sed` binary (POSIX flags + typed output)           | `src/atp-cli/src/bin/atp_sed.rs`  | ✅ Done |
+| `atp-awk` binary (POSIX flags + typed output)           | `src/atp-cli/src/bin/atp_awk.rs`  | ✅ Done |
+| Stdin piping support for all compat binaries            | `src/atp-cli/src/bin/atp_*.rs`    | ✅ Done |
+| Auto-format detection (JSON when piped, human when TTY) | `src/atp-cli/src/bin/atp_*.rs`    | ✅ Done |
+| Unit tests for compat parsers (22 tests)                | `src/atp-core/src/compat.rs`      | ✅ Done |
 
 ---
 
@@ -146,17 +146,17 @@
 
 | Task                                                      | File(s)                                     | Status |
 | --------------------------------------------------------- | ------------------------------------------- | ------ |
-| Remote telemetry system (CloudWatch-style)                | `atp-core/src/telemetry.rs`                 | ✅ Done |
-| Semantic search engine (TF-IDF, BM25 scoring)             | `atp-core/src/semantic.rs`                  | ✅ Done |
-| WASM bindings (grep/sed/awk/aql/semantic/ontology)        | `atp-wasm/src/lib.rs`                       | ✅ Done |
-| LSP server (completion, hover, diagnostics, formatting)   | `atp-lsp/src/server.rs`                     | ✅ Done |
+| Remote telemetry system (CloudWatch-style)                | `src/atp-core/src/telemetry.rs`                 | ✅ Done |
+| Semantic search engine (TF-IDF, BM25 scoring)             | `src/atp-core/src/semantic.rs`                  | ✅ Done |
+| WASM bindings (grep/sed/awk/aql/semantic/ontology)        | `src/atp-wasm/src/lib.rs`                       | ✅ Done |
+| LSP server (completion, hover, diagnostics, formatting)   | `src/atp-lsp/src/server.rs`                     | ✅ Done |
 | CI/CD pipeline (8 jobs: lint, test, MSRV, miri, coverage) | `.github/workflows/ci.yml`                  | ✅ Done |
 | Release workflows (7 targets, binary artifacts)           | `.github/workflows/release.yml`             | ✅ Done |
 | Cross-compilation (5 targets)                             | `Cross.toml`, `.github/workflows/cross.yml` | ✅ Done |
-| Criterion benchmarks (grep, sed, awk, aql, semantic)      | `atp-core/benches/engines.rs`               | ✅ Done |
-| Shell completions (bash, zsh, fish, PowerShell, elvish)   | `atp-cli/src/commands/completions.rs`       | ✅ Done |
-| Man page generation                                       | `atp-cli/src/commands/manpage.rs`           | ✅ Done |
-| Integration test suite (21 tests)                         | `atp-core/tests/integration.rs`             | ✅ Done |
+| Criterion benchmarks (grep, sed, awk, aql, semantic)      | `src/atp-core/benches/engines.rs`               | ✅ Done |
+| Shell completions (bash, zsh, fish, PowerShell, elvish)   | `src/atp-cli/src/commands/completions.rs`       | ✅ Done |
+| Man page generation                                       | `src/atp-cli/src/commands/manpage.rs`           | ✅ Done |
+| Integration test suite (21 tests)                         | `src/atp-core/tests/integration.rs`             | ✅ Done |
 | Documentation site (mdBook, 27 pages)                     | `docs/`                                     | ✅ Done |
 | crates.io publication metadata                            | `Cargo.toml` (all crates)                   | ✅ Done |
 | AGPL-3.0-only license                                    | `LICENSE`                                   | ✅ Done |
@@ -185,19 +185,19 @@
 
 | Task                                                    | File(s)                          | Status |
 | ------------------------------------------------------- | -------------------------------- | ------ |
-| AQL v2: `let` variables                                 | `atp-core/src/engine/aql.rs`     | ✅ Done |
-| AQL v2: `if`/`else`/`end` conditionals                  | `atp-core/src/engine/aql.rs`     | ✅ Done |
-| AQL v2: `group by` with aggregations                    | `atp-core/src/engine/aql.rs`     | ✅ Done |
-| AQL v2: `def`/`call` user-defined functions             | `atp-core/src/engine/aql.rs`     | ✅ Done |
-| AQL v2 unit tests (14 new tests)                        | `atp-core/src/engine/aql.rs`     | ✅ Done |
-| Parallel file search (rayon)                            | `atp-core/src/engine/grep.rs`    | ✅ Done |
-| Memory-mapped I/O (memmap2)                             | `atp-core/src/engine/grep.rs`    | ✅ Done |
+| AQL v2: `let` variables                                 | `src/atp-core/src/engine/aql.rs`     | ✅ Done |
+| AQL v2: `if`/`else`/`end` conditionals                  | `src/atp-core/src/engine/aql.rs`     | ✅ Done |
+| AQL v2: `group by` with aggregations                    | `src/atp-core/src/engine/aql.rs`     | ✅ Done |
+| AQL v2: `def`/`call` user-defined functions             | `src/atp-core/src/engine/aql.rs`     | ✅ Done |
+| AQL v2 unit tests (14 new tests)                        | `src/atp-core/src/engine/aql.rs`     | ✅ Done |
+| Parallel file search (rayon)                            | `src/atp-core/src/engine/grep.rs`    | ✅ Done |
+| Memory-mapped I/O (memmap2)                             | `src/atp-core/src/engine/grep.rs`    | ✅ Done |
 | Benchmark regression CI gate (120% threshold)           | `.github/workflows/ci.yml`       | ✅ Done |
-| Configuration system (`~/.atp/config.toml`, `.atprc`)   | `atp-core/src/config.rs`         | ✅ Done |
-| CLI `config` command (`--show`, `--init`, `--path`)     | `atp-cli/src/commands/config.rs` | ✅ Done |
-| MCP server mode (4 tools, JSON-RPC 2.0 over stdio)      | `atp-cli/src/commands/mcp.rs`    | ✅ Done |
+| Configuration system (`~/.atp/config.toml`, `.atprc`)   | `src/atp-core/src/config.rs`         | ✅ Done |
+| CLI `config` command (`--show`, `--init`, `--path`)     | `src/atp-cli/src/commands/config.rs` | ✅ Done |
+| MCP server mode (4 tools, JSON-RPC 2.0 over stdio)      | `src/atp-cli/src/commands/mcp.rs`    | ✅ Done |
 | VS Code extension (AQL grammar, LSP client)             | `editors/vscode/`                | ✅ Done |
-| Property-based tests (11 proptest tests)                | `atp-core/tests/property.rs`     | ✅ Done |
+| Property-based tests (11 proptest tests)                | `src/atp-core/tests/property.rs`     | ✅ Done |
 | Fuzz harness (3 cargo-fuzz targets + corpus)            | `fuzz/`                          | ✅ Done |
 | Homebrew formula                                        | `packaging/homebrew/atp.rb`      | ✅ Done |
 | Scoop manifest (Windows)                                | `packaging/scoop/atp.json`       | ✅ Done |
@@ -212,16 +212,16 @@
 
 | Task                                                  | File(s)                           | Status |
 | ----------------------------------------------------- | --------------------------------- | ------ |
-| Async I/O & streaming (tokio, URL sources, channels)  | `atp-core/src/async_io.rs`        | ✅ Done |
-| AI/LLM integration (Ollama, OpenAI, NL-to-AQL)        | `atp-core/src/ai.rs`              | ✅ Done |
-| Code intelligence (14 languages, symbol extraction)   | `atp-core/src/code_intel.rs`      | ✅ Done |
-| Remote execution (SSH, parallel, host files)          | `atp-core/src/remote.rs`          | ✅ Done |
-| CLI `ai` command (NL-to-AQL, explain, suggest)        | `atp-cli/src/commands/ai.rs`      | ✅ Done |
-| CLI `remote` command (SSH distributed execution)      | `atp-cli/src/commands/remote.rs`  | ✅ Done |
-| CLI `symbols` command (code intelligence queries)     | `atp-cli/src/commands/symbols.rs` | ✅ Done |
-| CLI `plugin` command (install, scaffold, validate)    | `atp-cli/src/commands/plugin.rs`  | ✅ Done |
-| TUI overhaul (file browser, AQL tab, Symbols tab)     | `atp-tui/src/`                    | ✅ Done |
-| Plugin SDK (scaffold, validate, package, marketplace) | `atp-core/src/plugin.rs`          | ✅ Done |
+| Async I/O & streaming (tokio, URL sources, channels)  | `src/atp-core/src/async_io.rs`        | ✅ Done |
+| AI/LLM integration (Ollama, OpenAI, NL-to-AQL)        | `src/atp-core/src/ai.rs`              | ✅ Done |
+| Code intelligence (14 languages, symbol extraction)   | `src/atp-core/src/code_intel.rs`      | ✅ Done |
+| Remote execution (SSH, parallel, host files)          | `src/atp-core/src/remote.rs`          | ✅ Done |
+| CLI `ai` command (NL-to-AQL, explain, suggest)        | `src/atp-cli/src/commands/ai.rs`      | ✅ Done |
+| CLI `remote` command (SSH distributed execution)      | `src/atp-cli/src/commands/remote.rs`  | ✅ Done |
+| CLI `symbols` command (code intelligence queries)     | `src/atp-cli/src/commands/symbols.rs` | ✅ Done |
+| CLI `plugin` command (install, scaffold, validate)    | `src/atp-cli/src/commands/plugin.rs`  | ✅ Done |
+| TUI overhaul (file browser, AQL tab, Symbols tab)     | `src/atp-tui/src/`                    | ✅ Done |
+| Plugin SDK (scaffold, validate, package, marketplace) | `src/atp-core/src/plugin.rs`          | ✅ Done |
 | Crates.io publication prep (version deps, dry-run)    | `Cargo.toml` (all crates)         | ✅ Done |
 
 ---
@@ -232,17 +232,17 @@
 
 | Task                                                       | File(s)                               | Status |
 | ---------------------------------------------------------- | ------------------------------------- | ------ |
-| Fix flaky telemetry test (USAGE_TEST_MUTEX serialization)  | `atp-core/src/telemetry.rs`           | ✅ Done |
-| Tree-sitter code intelligence (scope trees, call graphs)   | `atp-core/src/code_intel.rs`          | ✅ Done |
-| Incremental file index (trigram search, persistence)       | `atp-core/src/index.rs`               | ✅ Done |
-| DAP integration (AQL debugger, breakpoints, snapshots)     | `atp-core/src/dap.rs`                 | ✅ Done |
-| WASM plugin runtime (sandbox, capability security)         | `atp-core/src/wasm_runtime.rs`        | ✅ Done |
-| Notebook / literate mode (markdown + AQL, execute, render) | `atp-core/src/notebook.rs`            | ✅ Done |
-| Distributed pipelines (scatter/gather, partition, merge)   | `atp-core/src/distributed.rs`         | ✅ Done |
-| CLI `index` command (build, search, status, update, files) | `atp-cli/src/commands/index.rs`       | ✅ Done |
-| CLI `debug` command (step, run, info modes)                | `atp-cli/src/commands/debug.rs`       | ✅ Done |
-| CLI `notebook` command (run, render, info actions)         | `atp-cli/src/commands/notebook.rs`    | ✅ Done |
-| CLI `distributed` command (scatter/gather execution)       | `atp-cli/src/commands/distributed.rs` | ✅ Done |
+| Fix flaky telemetry test (USAGE_TEST_MUTEX serialization)  | `src/atp-core/src/telemetry.rs`           | ✅ Done |
+| Tree-sitter code intelligence (scope trees, call graphs)   | `src/atp-core/src/code_intel.rs`          | ✅ Done |
+| Incremental file index (trigram search, persistence)       | `src/atp-core/src/index.rs`               | ✅ Done |
+| DAP integration (AQL debugger, breakpoints, snapshots)     | `src/atp-core/src/dap.rs`                 | ✅ Done |
+| WASM plugin runtime (sandbox, capability security)         | `src/atp-core/src/wasm_runtime.rs`        | ✅ Done |
+| Notebook / literate mode (markdown + AQL, execute, render) | `src/atp-core/src/notebook.rs`            | ✅ Done |
+| Distributed pipelines (scatter/gather, partition, merge)   | `src/atp-core/src/distributed.rs`         | ✅ Done |
+| CLI `index` command (build, search, status, update, files) | `src/atp-cli/src/commands/index.rs`       | ✅ Done |
+| CLI `debug` command (step, run, info modes)                | `src/atp-cli/src/commands/debug.rs`       | ✅ Done |
+| CLI `notebook` command (run, render, info actions)         | `src/atp-cli/src/commands/notebook.rs`    | ✅ Done |
+| CLI `distributed` command (scatter/gather execution)       | `src/atp-cli/src/commands/distributed.rs` | ✅ Done |
 | 67 new unit tests across 5 new modules                     | —                                     | ✅ Done |
 
 ---
@@ -253,16 +253,16 @@
 
 | Task                                                         | File(s)                           | Status |
 | ------------------------------------------------------------ | --------------------------------- | ------ |
-| Aho-Corasick multi-pattern grep                              | `atp-core/src/engine/grep.rs`     | ✅ Done |
-| OpenTelemetry-style tracing (TracingConfig, TracedOperation) | `atp-core/src/telemetry.rs`       | ✅ Done |
-| Streaming pipelines (async mpsc, StreamingConfig)            | `atp-core/src/engine/pipeline.rs` | ✅ Done |
-| LSP v2 (context-aware completion, workspace symbols)         | `atp-lsp/src/server.rs`           | ✅ Done |
-| LSP notebook diagnostics for `.atp.md` files                 | `atp-lsp/src/server.rs`           | ✅ Done |
-| TUI v2 (10 tabs: +Index, +Debug, +Notebook, +Distributed)    | `atp-tui/src/app.rs`              | ✅ Done |
-| Real WASM engine (WasmEngine trait, binary parser)           | `atp-core/src/wasm_runtime.rs`    | ✅ Done |
-| Project `.atp.toml` (PipelineDefaults, ScopeDefaults)        | `atp-core/src/config.rs`          | ✅ Done |
-| DAP wire protocol (Content-Length framed JSON encode/decode) | `atp-core/src/dap.rs`             | ✅ Done |
-| End-to-end integration tests (10 new, 30 total)              | `atp-core/tests/integration.rs`   | ✅ Done |
+| Aho-Corasick multi-pattern grep                              | `src/atp-core/src/engine/grep.rs`     | ✅ Done |
+| OpenTelemetry-style tracing (TracingConfig, TracedOperation) | `src/atp-core/src/telemetry.rs`       | ✅ Done |
+| Streaming pipelines (async mpsc, StreamingConfig)            | `src/atp-core/src/engine/pipeline.rs` | ✅ Done |
+| LSP v2 (context-aware completion, workspace symbols)         | `src/atp-lsp/src/server.rs`           | ✅ Done |
+| LSP notebook diagnostics for `.atp.md` files                 | `src/atp-lsp/src/server.rs`           | ✅ Done |
+| TUI v2 (10 tabs: +Index, +Debug, +Notebook, +Distributed)    | `src/atp-tui/src/app.rs`              | ✅ Done |
+| Real WASM engine (WasmEngine trait, binary parser)           | `src/atp-core/src/wasm_runtime.rs`    | ✅ Done |
+| Project `.atp.toml` (PipelineDefaults, ScopeDefaults)        | `src/atp-core/src/config.rs`          | ✅ Done |
+| DAP wire protocol (Content-Length framed JSON encode/decode) | `src/atp-core/src/dap.rs`             | ✅ Done |
+| End-to-end integration tests (10 new, 30 total)              | `src/atp-core/tests/integration.rs`   | ✅ Done |
 | README.md refresh (badges, diagram, commands, tests)         | `README.md`                       | ✅ Done |
 | ~55 new unit tests across all enhanced modules               | —                                 | ✅ Done |
 
@@ -274,14 +274,14 @@
 
 | Task                                                     | File(s)                      | Status |
 | -------------------------------------------------------- | ---------------------------- | ------ |
-| Incremental compilation cache (SHA-256, LRU, TTL, disk)  | `atp-core/src/cache.rs`      | ✅ Done |
-| Structured diff engine (JSON diff, text diff, patch)     | `atp-core/src/diff.rs`       | ✅ Done |
-| Profile-guided optimization hints (4 analysis rules)     | `atp-core/src/profile.rs`    | ✅ Done |
-| Schema registry (10 JSON Schema 2020-12 definitions)     | `atp-core/src/schema.rs`     | ✅ Done |
-| Query plan optimizer (pushdown, dead-stage, dedup)       | `atp-core/src/optimizer.rs`  | ✅ Done |
-| Rate-limited pipelines (token bucket, circuit breaker)   | `atp-core/src/rate_limit.rs` | ✅ Done |
-| Git-aware search (changed files, blame, line ranges)     | `atp-core/src/git_search.rs` | ✅ Done |
-| Snapshot testing harness (create, verify, update, norm.) | `atp-core/src/snapshot.rs`   | ✅ Done |
+| Incremental compilation cache (SHA-256, LRU, TTL, disk)  | `src/atp-core/src/cache.rs`      | ✅ Done |
+| Structured diff engine (JSON diff, text diff, patch)     | `src/atp-core/src/diff.rs`       | ✅ Done |
+| Profile-guided optimization hints (4 analysis rules)     | `src/atp-core/src/profile.rs`    | ✅ Done |
+| Schema registry (10 JSON Schema 2020-12 definitions)     | `src/atp-core/src/schema.rs`     | ✅ Done |
+| Query plan optimizer (pushdown, dead-stage, dedup)       | `src/atp-core/src/optimizer.rs`  | ✅ Done |
+| Rate-limited pipelines (token bucket, circuit breaker)   | `src/atp-core/src/rate_limit.rs` | ✅ Done |
+| Git-aware search (changed files, blame, line ranges)     | `src/atp-core/src/git_search.rs` | ✅ Done |
+| Snapshot testing harness (create, verify, update, norm.) | `src/atp-core/src/snapshot.rs`   | ✅ Done |
 | 4 new fuzz targets (pipeline, config, diff, optimizer)   | `fuzz/fuzz_targets/`         | ✅ Done |
 | ~90 new unit tests across 8 new modules                  | —                            | ✅ Done |
 
@@ -293,16 +293,16 @@
 
 | Task                                                     | File(s)                      | Status |
 | -------------------------------------------------------- | ---------------------------- | ------ |
-| Task queue with dependency DAG (Kahn's toposort, retry)  | `atp-core/src/task_queue.rs` | ✅ Done |
-| Pattern registry (4 built-in sets, 20 patterns)          | `atp-core/src/patterns.rs`   | ✅ Done |
-| Checkpoint / resume manager (SHA-256, name index, disk)  | `atp-core/src/checkpoint.rs` | ✅ Done |
-| Structured log sink (5 format parsers, alerts)           | `atp-core/src/log_sink.rs`   | ✅ Done |
-| Sensitive data redactor (8 rules, 4 mask strategies)     | `atp-core/src/redact.rs`     | ✅ Done |
-| Dependency graph analyzer (cycles, toposort, DOT export) | `atp-core/src/dep_graph.rs`  | ✅ Done |
-| Template engine (Mustache-style, partials, iteration)    | `atp-core/src/template.rs`   | ✅ Done |
-| Workspace aggregator (multi-project discovery, 8 kinds)  | `atp-core/src/workspace.rs`  | ✅ Done |
-| Event bus / hook system (priority dispatch, skip/abort)  | `atp-core/src/hooks.rs`      | ✅ Done |
-| Metrics registry (Counter, Gauge, Histogram, Prometheus) | `atp-core/src/metrics.rs`    | ✅ Done |
+| Task queue with dependency DAG (Kahn's toposort, retry)  | `src/atp-core/src/task_queue.rs` | ✅ Done |
+| Pattern registry (4 built-in sets, 20 patterns)          | `src/atp-core/src/patterns.rs`   | ✅ Done |
+| Checkpoint / resume manager (SHA-256, name index, disk)  | `src/atp-core/src/checkpoint.rs` | ✅ Done |
+| Structured log sink (5 format parsers, alerts)           | `src/atp-core/src/log_sink.rs`   | ✅ Done |
+| Sensitive data redactor (8 rules, 4 mask strategies)     | `src/atp-core/src/redact.rs`     | ✅ Done |
+| Dependency graph analyzer (cycles, toposort, DOT export) | `src/atp-core/src/dep_graph.rs`  | ✅ Done |
+| Template engine (Mustache-style, partials, iteration)    | `src/atp-core/src/template.rs`   | ✅ Done |
+| Workspace aggregator (multi-project discovery, 8 kinds)  | `src/atp-core/src/workspace.rs`  | ✅ Done |
+| Event bus / hook system (priority dispatch, skip/abort)  | `src/atp-core/src/hooks.rs`      | ✅ Done |
+| Metrics registry (Counter, Gauge, Histogram, Prometheus) | `src/atp-core/src/metrics.rs`    | ✅ Done |
 | ~136 new unit tests across 10 new modules                | —                            | ✅ Done |
 
 ---
@@ -313,16 +313,16 @@
 
 | Task                                                         | File(s)                       | Status |
 | ------------------------------------------------------------ | ----------------------------- | ------ |
-| Declarative if-then rule engine (11 conditions, 9 actions)   | `atp-core/src/rule_engine.rs` | ✅ Done |
-| Table formatter (4 border styles, alignment, overflow)       | `atp-core/src/formatter.rs`   | ✅ Done |
-| Cron-like scheduler (5-field cron, missed-run detection)     | `atp-core/src/scheduler.rs`   | ✅ Done |
-| Encryption (PBKDF2-HMAC-SHA256, XOR stream, auth tags)       | `atp-core/src/encryption.rs`  | ✅ Done |
-| Changelog generator (Conventional Commits, semver bumps)     | `atp-core/src/changelog.rs`   | ✅ Done |
-| Text/code linter (7 rule types, autofix, file-type filter)   | `atp-core/src/linter.rs`      | ✅ Done |
-| In-memory data table (filter, sort, group-by, join, pivot)   | `atp-core/src/data_table.rs`  | ✅ Done |
-| Multi-pass rewrite engine (named rule sets, scope, dry-run)  | `atp-core/src/rewrite.rs`     | ✅ Done |
-| Archive processor (tar, gzip, search, extract, auto-detect)  | `atp-core/src/archive.rs`     | ✅ Done |
-| Report composer (Markdown, HTML, JSON, PlainText, templates) | `atp-core/src/report.rs`      | ✅ Done |
+| Declarative if-then rule engine (11 conditions, 9 actions)   | `src/atp-core/src/rule_engine.rs` | ✅ Done |
+| Table formatter (4 border styles, alignment, overflow)       | `src/atp-core/src/formatter.rs`   | ✅ Done |
+| Cron-like scheduler (5-field cron, missed-run detection)     | `src/atp-core/src/scheduler.rs`   | ✅ Done |
+| Encryption (PBKDF2-HMAC-SHA256, XOR stream, auth tags)       | `src/atp-core/src/encryption.rs`  | ✅ Done |
+| Changelog generator (Conventional Commits, semver bumps)     | `src/atp-core/src/changelog.rs`   | ✅ Done |
+| Text/code linter (7 rule types, autofix, file-type filter)   | `src/atp-core/src/linter.rs`      | ✅ Done |
+| In-memory data table (filter, sort, group-by, join, pivot)   | `src/atp-core/src/data_table.rs`  | ✅ Done |
+| Multi-pass rewrite engine (named rule sets, scope, dry-run)  | `src/atp-core/src/rewrite.rs`     | ✅ Done |
+| Archive processor (tar, gzip, search, extract, auto-detect)  | `src/atp-core/src/archive.rs`     | ✅ Done |
+| Report composer (Markdown, HTML, JSON, PlainText, templates) | `src/atp-core/src/report.rs`      | ✅ Done |
 | ~148 new unit tests across 10 new modules                    | —                             | ✅ Done |
 
 ---
@@ -333,16 +333,16 @@
 
 | Task                                                          | File(s)                         | Status |
 | ------------------------------------------------------------- | ------------------------------- | ------ |
-| Multi-format converter (JSON, YAML, TOML, CSV, XML, INI)      | `atp-core/src/converter.rs`     | ✅ Done |
-| Text statistics (readability, entropy, Zipf, n-grams)         | `atp-core/src/statistics.rs`    | ✅ Done |
-| Programmable state machine (guards, actions, DOT export)      | `atp-core/src/state_machine.rs` | ✅ Done |
-| Unicode / i18n (normalisation, transliteration, scripts)      | `atp-core/src/i18n.rs`          | ✅ Done |
-| Transactional batch operations (MemFs, rollback, dry-run)     | `atp-core/src/batch.rs`         | ✅ Done |
-| Annotation engine (spans, overlap resolution, kappa)          | `atp-core/src/annotation.rs`    | ✅ Done |
-| Syntax highlighting (5 languages, ANSI/HTML/SVG, themes)      | `atp-core/src/highlight.rs`     | ✅ Done |
-| Timeline / temporal events (bucketing, anomalies, sparklines) | `atp-core/src/timeline.rs`      | ✅ Done |
-| Generic tree (DFS/BFS, diff, merge, prune, JSON)              | `atp-core/src/tree.rs`          | ✅ Done |
-| Multi-format validator (email, URL, semver, UUID, IP, schema) | `atp-core/src/validator.rs`     | ✅ Done |
+| Multi-format converter (JSON, YAML, TOML, CSV, XML, INI)      | `src/atp-core/src/converter.rs`     | ✅ Done |
+| Text statistics (readability, entropy, Zipf, n-grams)         | `src/atp-core/src/statistics.rs`    | ✅ Done |
+| Programmable state machine (guards, actions, DOT export)      | `src/atp-core/src/state_machine.rs` | ✅ Done |
+| Unicode / i18n (normalisation, transliteration, scripts)      | `src/atp-core/src/i18n.rs`          | ✅ Done |
+| Transactional batch operations (MemFs, rollback, dry-run)     | `src/atp-core/src/batch.rs`         | ✅ Done |
+| Annotation engine (spans, overlap resolution, kappa)          | `src/atp-core/src/annotation.rs`    | ✅ Done |
+| Syntax highlighting (5 languages, ANSI/HTML/SVG, themes)      | `src/atp-core/src/highlight.rs`     | ✅ Done |
+| Timeline / temporal events (bucketing, anomalies, sparklines) | `src/atp-core/src/timeline.rs`      | ✅ Done |
+| Generic tree (DFS/BFS, diff, merge, prune, JSON)              | `src/atp-core/src/tree.rs`          | ✅ Done |
+| Multi-format validator (email, URL, semver, UUID, IP, schema) | `src/atp-core/src/validator.rs`     | ✅ Done |
 | ~158 new unit tests across 10 new modules                     | —                               | ✅ Done |
 
 ---
@@ -354,16 +354,16 @@
 
 | Task                                                          | File(s)                          | Status |
 | ------------------------------------------------------------- | -------------------------------- | ------ |
-| Multi-codec encoder/decoder (Base64, Hex, URL, HTML, ROT13)  | `atp-core/src/codec.rs`          | ✅ Done |
-| Document fingerprinting (SimHash, MinHash, shingling)         | `atp-core/src/fingerprint.rs`    | ✅ Done |
-| Markdown parser and renderer (AST, HTML, TOC, links)          | `atp-core/src/markdown.rs`       | ✅ Done |
-| Text sampling (Reservoir, Systematic, Stratified, Weighted)   | `atp-core/src/sampler.rs`        | ✅ Done |
-| Multi-granularity tokenizer (Word, Sentence, BPE)             | `atp-core/src/tokenizer.rs`      | ✅ Done |
-| Spell checker (Levenshtein, Soundex, suggestions)             | `atp-core/src/spellcheck.rs`     | ✅ Done |
-| Date/time utilities (parsing, arithmetic, relative dates)     | `atp-core/src/calendar.rs`       | ✅ Done |
-| Text compression (RLE, LZ77, Huffman coding)                  | `atp-core/src/compress.rs`       | ✅ Done |
-| Color manipulation (RGB/HSL, WCAG accessibility, palettes)    | `atp-core/src/color.rs`          | ✅ Done |
-| Macro engine (11 step types, variables, recorder, recursion)  | `atp-core/src/macro_engine.rs`   | ✅ Done |
+| Multi-codec encoder/decoder (Base64, Hex, URL, HTML, ROT13)  | `src/atp-core/src/codec.rs`          | ✅ Done |
+| Document fingerprinting (SimHash, MinHash, shingling)         | `src/atp-core/src/fingerprint.rs`    | ✅ Done |
+| Markdown parser and renderer (AST, HTML, TOC, links)          | `src/atp-core/src/markdown.rs`       | ✅ Done |
+| Text sampling (Reservoir, Systematic, Stratified, Weighted)   | `src/atp-core/src/sampler.rs`        | ✅ Done |
+| Multi-granularity tokenizer (Word, Sentence, BPE)             | `src/atp-core/src/tokenizer.rs`      | ✅ Done |
+| Spell checker (Levenshtein, Soundex, suggestions)             | `src/atp-core/src/spellcheck.rs`     | ✅ Done |
+| Date/time utilities (parsing, arithmetic, relative dates)     | `src/atp-core/src/calendar.rs`       | ✅ Done |
+| Text compression (RLE, LZ77, Huffman coding)                  | `src/atp-core/src/compress.rs`       | ✅ Done |
+| Color manipulation (RGB/HSL, WCAG accessibility, palettes)    | `src/atp-core/src/color.rs`          | ✅ Done |
+| Macro engine (11 step types, variables, recorder, recursion)  | `src/atp-core/src/macro_engine.rs`   | ✅ Done |
 | ~165 new unit tests across 10 new modules                     | —                                | ✅ Done |
 
 ---
@@ -374,16 +374,16 @@
 
 | Task                                                          | File(s)                          | Status |
 | ------------------------------------------------------------- | -------------------------------- | ------ |
-| Fuzzy string matching (Jaro, Jaro-Winkler, trigrams)          | `atp-core/src/fuzzy.rs`          | ✅ Done |
-| Text summarization (TF-IDF, TextRank, Lead strategies)        | `atp-core/src/summarizer.rs`     | ✅ Done |
-| Case conversion and detection (10 styles)                     | `atp-core/src/casing.rs`         | ✅ Done |
-| Text wrapping (word-wrap, hard-wrap, columns, dedent)         | `atp-core/src/text_wrap.rs`      | ✅ Done |
-| MIME type detection (magic bytes, extensions, charset)         | `atp-core/src/mime.rs`           | ✅ Done |
-| Text graph analytics (co-occurrence, PageRank, TextRank)      | `atp-core/src/graph.rs`          | ✅ Done |
-| Shell command analysis (shebang, portability, escaping)        | `atp-core/src/shell.rs`          | ✅ Done |
-| URL parsing and manipulation (normalize, resolve, encode)     | `atp-core/src/url.rs`            | ✅ Done |
-| Table detection and extraction (Markdown, ASCII, fixed-width) | `atp-core/src/table_extract.rs`  | ✅ Done |
-| Emoji detection and manipulation (find, sentiment, shortcodes)| `atp-core/src/emoji.rs`          | ✅ Done |
+| Fuzzy string matching (Jaro, Jaro-Winkler, trigrams)          | `src/atp-core/src/fuzzy.rs`          | ✅ Done |
+| Text summarization (TF-IDF, TextRank, Lead strategies)        | `src/atp-core/src/summarizer.rs`     | ✅ Done |
+| Case conversion and detection (10 styles)                     | `src/atp-core/src/casing.rs`         | ✅ Done |
+| Text wrapping (word-wrap, hard-wrap, columns, dedent)         | `src/atp-core/src/text_wrap.rs`      | ✅ Done |
+| MIME type detection (magic bytes, extensions, charset)         | `src/atp-core/src/mime.rs`           | ✅ Done |
+| Text graph analytics (co-occurrence, PageRank, TextRank)      | `src/atp-core/src/graph.rs`          | ✅ Done |
+| Shell command analysis (shebang, portability, escaping)        | `src/atp-core/src/shell.rs`          | ✅ Done |
+| URL parsing and manipulation (normalize, resolve, encode)     | `src/atp-core/src/url.rs`            | ✅ Done |
+| Table detection and extraction (Markdown, ASCII, fixed-width) | `src/atp-core/src/table_extract.rs`  | ✅ Done |
+| Emoji detection and manipulation (find, sentiment, shortcodes)| `src/atp-core/src/emoji.rs`          | ✅ Done |
 | ~175 new unit tests across 10 new modules                     | —                                | ✅ Done |
 
 ---
@@ -391,33 +391,33 @@
 
 | Command       | Aliases                          | File                                  | Milestone |
 | ------------- | -------------------------------- | ------------------------------------- | --------- |
-| `search`      | `s`, `grep`, `find`              | `atp-cli/src/commands/search.rs`      | 2         |
-| `transform`   | `t`, `sed`, `replace`            | `atp-cli/src/commands/transform.rs`   | 2         |
-| `analyze`     | `a`, `awk`, `fields`             | `atp-cli/src/commands/analyze.rs`     | 2         |
-| `pipeline`    | `pipe`, `chain`                  | `atp-cli/src/commands/pipeline.rs`    | 2         |
-| `query`       | `q`, `aql`, `run`                | `atp-cli/src/commands/query.rs`       | 2         |
-| `ontology`    | `onto`, `capabilities`, `schema` | `atp-cli/src/commands/ontology.rs`    | 2         |
-| `explain`     | `x`, `preview`                   | `atp-cli/src/commands/explain.rs`     | 2         |
-| `scope`       | `ls`, `files`                    | `atp-cli/src/commands/scope.rs`       | 2         |
-| `validate`    | `check`                          | `atp-cli/src/commands/validate.rs`    | 2         |
-| `context`     | `ctx`                            | `atp-cli/src/commands/context.rs`     | 2         |
-| `compliance`  | `audit`, `cmmc`                  | `atp-cli/src/commands/compliance.rs`  | 5         |
-| `repl`        | `shell`, `interactive`           | `atp-cli/src/commands/repl.rs`        | 7         |
-| `watch`       | `monitor`, `w`                   | `atp-cli/src/commands/watch.rs`       | 7         |
-| `stream`      | —                                | `atp-cli/src/commands/stream.rs`      | 7         |
-| `completions` | —                                | `atp-cli/src/commands/completions.rs` | 8         |
-| `manpage`     | —                                | `atp-cli/src/commands/manpage.rs`     | 8         |
-| `plugins`     | —                                | `atp-cli/src/commands/plugins.rs`     | 7         |
-| `config`      | `cfg`                            | `atp-cli/src/commands/config.rs`      | 10        |
-| `mcp`         | `serve`                          | `atp-cli/src/commands/mcp.rs`         | 10        |
-| `ai`          | `llm`                            | `atp-cli/src/commands/ai.rs`          | 11        |
-| `remote`      | `ssh`                            | `atp-cli/src/commands/remote.rs`      | 11        |
-| `symbols`     | `sym`, `code`                    | `atp-cli/src/commands/symbols.rs`     | 11        |
-| `plugin`      | `plug`                           | `atp-cli/src/commands/plugin.rs`      | 11        |
-| `index`       | `idx`                            | `atp-cli/src/commands/index.rs`       | 12        |
-| `debug`       | `dbg`                            | `atp-cli/src/commands/debug.rs`       | 12        |
-| `notebook`    | `nb`, `literate`                 | `atp-cli/src/commands/notebook.rs`    | 12        |
-| `distributed` | `dist`, `scatter`                | `atp-cli/src/commands/distributed.rs` | 12        |
+| `search`      | `s`, `grep`, `find`              | `src/atp-cli/src/commands/search.rs`      | 2         |
+| `transform`   | `t`, `sed`, `replace`            | `src/atp-cli/src/commands/transform.rs`   | 2         |
+| `analyze`     | `a`, `awk`, `fields`             | `src/atp-cli/src/commands/analyze.rs`     | 2         |
+| `pipeline`    | `pipe`, `chain`                  | `src/atp-cli/src/commands/pipeline.rs`    | 2         |
+| `query`       | `q`, `aql`, `run`                | `src/atp-cli/src/commands/query.rs`       | 2         |
+| `ontology`    | `onto`, `capabilities`, `schema` | `src/atp-cli/src/commands/ontology.rs`    | 2         |
+| `explain`     | `x`, `preview`                   | `src/atp-cli/src/commands/explain.rs`     | 2         |
+| `scope`       | `ls`, `files`                    | `src/atp-cli/src/commands/scope.rs`       | 2         |
+| `validate`    | `check`                          | `src/atp-cli/src/commands/validate.rs`    | 2         |
+| `context`     | `ctx`                            | `src/atp-cli/src/commands/context.rs`     | 2         |
+| `compliance`  | `audit`, `cmmc`                  | `src/atp-cli/src/commands/compliance.rs`  | 5         |
+| `repl`        | `shell`, `interactive`           | `src/atp-cli/src/commands/repl.rs`        | 7         |
+| `watch`       | `monitor`, `w`                   | `src/atp-cli/src/commands/watch.rs`       | 7         |
+| `stream`      | —                                | `src/atp-cli/src/commands/stream.rs`      | 7         |
+| `completions` | —                                | `src/atp-cli/src/commands/completions.rs` | 8         |
+| `manpage`     | —                                | `src/atp-cli/src/commands/manpage.rs`     | 8         |
+| `plugins`     | —                                | `src/atp-cli/src/commands/plugins.rs`     | 7         |
+| `config`      | `cfg`                            | `src/atp-cli/src/commands/config.rs`      | 10        |
+| `mcp`         | `serve`                          | `src/atp-cli/src/commands/mcp.rs`         | 10        |
+| `ai`          | `llm`                            | `src/atp-cli/src/commands/ai.rs`          | 11        |
+| `remote`      | `ssh`                            | `src/atp-cli/src/commands/remote.rs`      | 11        |
+| `symbols`     | `sym`, `code`                    | `src/atp-cli/src/commands/symbols.rs`     | 11        |
+| `plugin`      | `plug`                           | `src/atp-cli/src/commands/plugin.rs`      | 11        |
+| `index`       | `idx`                            | `src/atp-cli/src/commands/index.rs`       | 12        |
+| `debug`       | `dbg`                            | `src/atp-cli/src/commands/debug.rs`       | 12        |
+| `notebook`    | `nb`, `literate`                 | `src/atp-cli/src/commands/notebook.rs`    | 12        |
+| `distributed` | `dist`, `scatter`                | `src/atp-cli/src/commands/distributed.rs` | 12        |
 
 ---
 
