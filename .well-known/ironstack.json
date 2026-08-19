@@ -6,102 +6,13 @@
   "role": "Agentic-first text processing.",
   "ontology": {
     "command": "atp ontology",
+    "document": "src/atp-core/src/ontology.rs",
     "schema": 1
   },
   "capabilities": [
     {
-      "name": "ontology",
-      "description": "Emit the complete ATP ontology for agent discovery.",
-      "requires_grant": false,
-      "budgeted": false,
-      "surfaces": [
-        "cli"
-      ]
-    },
-    {
-      "name": "explain",
-      "description": "Say what a command will do before it runs. The tool's own dry-run affordance.",
-      "requires_grant": false,
-      "budgeted": false,
-      "surfaces": [
-        "cli"
-      ]
-    },
-    {
-      "name": "validate",
-      "description": "Check a pattern, expression or pipeline without executing it.",
-      "requires_grant": false,
-      "budgeted": false,
-      "surfaces": [
-        "cli"
-      ]
-    },
-    {
-      "name": "completions",
-      "description": "Print shell completion scripts.",
-      "requires_grant": false,
-      "budgeted": false,
-      "surfaces": [
-        "cli"
-      ]
-    },
-    {
-      "name": "man",
-      "description": "Print man pages.",
-      "requires_grant": false,
-      "budgeted": false,
-      "surfaces": [
-        "cli"
-      ]
-    },
-    {
-      "name": "scope",
-      "description": "List the files the scope configuration selects.",
-      "requires_grant": false,
-      "budgeted": true,
-      "surfaces": [
-        "cli"
-      ]
-    },
-    {
       "name": "search",
-      "description": "Find patterns across files, grep-like.",
-      "requires_grant": false,
-      "budgeted": true,
-      "surfaces": [
-        "cli"
-      ]
-    },
-    {
-      "name": "analyze",
-      "description": "Field-based processing across files, awk-like.",
-      "requires_grant": false,
-      "budgeted": true,
-      "surfaces": [
-        "cli"
-      ]
-    },
-    {
-      "name": "query",
-      "description": "Execute an AQL query. Read or replace depending on the query.",
-      "requires_grant": true,
-      "budgeted": true,
-      "surfaces": [
-        "cli"
-      ]
-    },
-    {
-      "name": "context",
-      "description": "Show surrounding lines for each match.",
-      "requires_grant": false,
-      "budgeted": true,
-      "surfaces": [
-        "cli"
-      ]
-    },
-    {
-      "name": "compliance",
-      "description": "NIST FIPS and CMMC 2.0 reporting, and SHA-256 integrity hashes.",
+      "description": "Search for patterns in files. Declares: modifies_files=false, deterministic=true.",
       "requires_grant": false,
       "budgeted": true,
       "surfaces": [
@@ -110,8 +21,17 @@
     },
     {
       "name": "transform",
-      "description": "Pattern-based substitution across files, sed-like. Rewrites content.",
+      "description": "Transform text with pattern-based substitution. Declares: modifies_files=true, deterministic=true.",
       "requires_grant": true,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "analyze",
+      "description": "Analyze text with field-based processing and aggregation. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
       "budgeted": true,
       "surfaces": [
         "cli"
@@ -119,8 +39,107 @@
     },
     {
       "name": "pipeline",
-      "description": "Run a multi-stage pipeline, which may include transforms.",
+      "description": "Execute multi-stage processing pipelines. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "ontology",
+      "description": "Output the complete ATP ontology for agent discovery. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "explain",
+      "description": "Explain what a command will do before execution. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "scope",
+      "description": "List files matching the current scope configuration. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "query",
+      "description": "Execute AQL (ATP Query Language) queries -- unified syntax for agents and humans. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "validate",
+      "description": "Validate a pattern, expression, pipeline, or AQL query without executing. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "context",
+      "description": "Extract smart context windows around a specific line. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "compliance",
+      "description": "Compliance reporting -- NIST FIPS, CMMC 2.0, DoD regulatory posture. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "atp-grep",
+      "description": "POSIX grep-compatible binary with typed structured output. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "atp-sed",
+      "description": "POSIX sed-compatible binary with typed structured output. Declares: modifies_files=true, deterministic=true.",
       "requires_grant": true,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "atp-awk",
+      "description": "POSIX awk-compatible binary with typed structured output. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "repl",
+      "description": "Interactive AQL shell with history. Declares: modifies_files=false, deterministic=false.",
+      "requires_grant": false,
       "budgeted": true,
       "surfaces": [
         "cli"
@@ -128,25 +147,34 @@
     },
     {
       "name": "watch",
-      "description": "Re-run a query whenever files change. Runs until stopped.",
-      "requires_grant": true,
+      "description": "Re-run an AQL query whenever the watched files change. Runs until stopped. Declares: modifies_files=false, deterministic=false.",
+      "requires_grant": false,
       "budgeted": true,
       "surfaces": [
         "cli"
       ]
     },
     {
-      "name": "repl",
-      "description": "Interactive AQL shell.",
+      "name": "completions",
+      "description": "Print shell completion scripts to stdout. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "manpage",
+      "description": "Print a man page to stdout, or write all man pages to a directory. Declares: modifies_files=true, deterministic=true.",
       "requires_grant": true,
-      "budgeted": true,
+      "budgeted": false,
       "surfaces": [
         "cli"
       ]
     },
     {
       "name": "config",
-      "description": "View or change ATP configuration.",
+      "description": "View and manage ATP configuration. Changes here alter the defaults every later command runs under. Declares: modifies_files=true, deterministic=true.",
       "requires_grant": true,
       "budgeted": false,
       "surfaces": [
@@ -155,7 +183,79 @@
     },
     {
       "name": "mcp",
-      "description": "Serve ATP tools over JSON-RPC for agents. Runs until stopped.",
+      "description": "Serve the ATP tool surface over JSON-RPC for agents. Runs until stopped, and re-exposes search, transform, query and analyze to whatever connects. Declares: modifies_files=true, deterministic=false.",
+      "requires_grant": true,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "ai",
+      "description": "Natural language to AQL, explanation and suggestion via an LLM. Not deterministic, and sends the prompt to whichever model is configured. Declares: modifies_files=false, deterministic=false.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "remote",
+      "description": "Run ATP commands on remote hosts over SSH. Declared as modifying because what it runs remotely may be transform. Declares: modifies_files=true, deterministic=false.",
+      "requires_grant": true,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "symbols",
+      "description": "Extract and search symbols in source code. Declares: modifies_files=false, deterministic=true.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "plugin",
+      "description": "Install, remove, scaffold and validate ATP plugins. Installing puts new code where ATP will load it. Declares: modifies_files=true, deterministic=true.",
+      "requires_grant": true,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "index",
+      "description": "Build, search and manage the file index. Building writes the index to disk. Declares: modifies_files=true, deterministic=true.",
+      "requires_grant": true,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "debug",
+      "description": "Step through an AQL pipeline, inspecting each stage. Declares: modifies_files=false, deterministic=false.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "notebook",
+      "description": "Execute a literate AQL notebook (Markdown plus AQL). Declared as modifying because a notebook may contain transform stages. Declares: modifies_files=true, deterministic=false.",
+      "requires_grant": true,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "distributed",
+      "description": "Scatter/gather pipeline execution across workers. Declared as modifying because the pipeline it runs may contain transform stages. Declares: modifies_files=true, deterministic=false.",
       "requires_grant": true,
       "budgeted": true,
       "surfaces": [
@@ -163,5 +263,5 @@
       ]
     }
   ],
-  "note": "Neither field is derived. This tool enumerates its commands but declares no effect, safety or authority data, so requires_grant and budgeted are judgements made from command semantics and are labelled as such rather than presented as the tool's own position. Replace this file with a derived one if the tool ever declares effects, the way abt, Rodeo, Botnet, MAGE and HyperMachine do. The rule applied: a grant is required to rewrite files, change configuration, or run until stopped. transform and pipeline rewrite content; watch, repl and mcp hold the process open; config changes defaults. search, analyze, context, scope and compliance only read, but each scans a caller-specified file set, so they are budgeted while ungranted. query is granted because AQL expresses both find and replace in one syntax, so the command name alone cannot tell a caller which they are getting -- the conservative reading is the correct one for a grant. ATP ships explain for exactly this ambiguity, and a caller unsure what a query will do should run it first."
+  "note": "requires_grant is DERIVED from modifies_files, which ATP declares per command alongside deterministic, supports_dry_run and supports_explain. An earlier version of this file said ATP declared no effect data; that was wrong -- it declared effects for the eleven commands it covered, and I had searched for the wrong field names. The real gap was coverage: eleven of twenty-five subcommands. The fourteen missing included plugin, which installs code where ATP will load it; config, which changes the defaults every later command runs under; remote, which runs ATP over SSH; and mcp, which re-exposes the whole surface over JSON-RPC. A drift test now walks clap's parsed Command, and it found nine of those fourteen after a first pass that had already tried to close the gap -- including one entry named `man` when the command is `manpage`, which would have read as complete and matched nothing. Four commands are declared modifying for a second-order reason, and the descriptions say so: remote, notebook, distributed and mcp do not themselves rewrite files, but each executes pipelines that may contain transform. Declaring them read-only would be true of the command and false of its consequences. The three compatibility shims -- atp-grep, atp-sed, atp-awk -- appear in the ontology but not in the subcommand list, because they are separate binaries. That asymmetry is deliberate and the drift test only checks one direction for that reason. Budgets are judged and mark the commands whose cost scales with the file set scanned or that run until stopped."
 }

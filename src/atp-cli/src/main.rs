@@ -365,3 +365,77 @@ fn atty_is_stdout() -> bool {
     use std::io::IsTerminal;
     std::io::stdout().is_terminal()
 }
+
+#[cfg(test)]
+mod ontology_completeness {
+    use clap::CommandFactory;
+
+    /// Every subcommand atp accepts has an ontology spec.
+    ///
+    /// Walks clap's own parsed `Command` rather than scanning text. This test
+    /// exists because the ontology described eleven of seventeen subcommands
+    /// while being the document an agent reads to decide what atp can do --
+    /// `config`, which changes the defaults every later command runs under,
+    /// and `mcp`, which re-exposes the whole tool surface over JSON-RPC, were
+    /// both absent.
+    ///
+    /// The compatibility shims (atp-grep, atp-sed, atp-awk) are separate
+    /// binaries rather than subcommands, so they are declared in the ontology
+    /// without appearing in this list. That is the one asymmetry, and it is
+    /// deliberate.
+    #[test]
+    fn every_subcommand_has_a_spec() {
+        let ontology = atp_core::ontology::build_ontology();
+        let declared: std::collections::HashSet<String> =
+            ontology.commands.iter().map(|c| c.name.clone()).collect();
+
+        let command = super::Cli::command();
+        let missing: Vec<String> = command
+            .get_subcommands()
+            .map(|s| s.get_name().to_string())
+            .filter(|name| !declared.contains(name))
+            .collect();
+
+        assert!(
+            missing.is_empty(),
+            "these subcommands exist but have no ontology spec: {missing:?}"
+        );
+    }
+
+    /// The commands that rewrite files say so.
+    ///
+    /// `modifies_files` is the field an agent checks before letting atp near a
+    /// working tree, so the claim is pinned rather than left to drift.
+    #[test]
+    fn rewriting_commands_declare_it() {
+        let ontology = atp_core::ontology::build_ontology();
+        for name in ["transform", "config"] {
+            let spec = ontology
+                .commands
+                .iter()
+                .find(|c| c.name == name)
+                .unwrap_or_else(|| panic!("`{name}` is missing from the ontology"));
+            assert!(
+                spec.modifies_files,
+                "`{name}` writes but does not declare modifies_files"
+            );
+        }
+    }
+
+    /// Reading never claims to write.
+    ///
+    /// The guard against the opposite failure: marking everything as
+    /// modifying would satisfy the test above while making the field useless.
+    #[test]
+    fn reading_commands_do_not_claim_to_write() {
+        let ontology = atp_core::ontology::build_ontology();
+        for name in ["search", "analyze", "validate", "explain", "ontology"] {
+            if let Some(spec) = ontology.commands.iter().find(|c| c.name == name) {
+                assert!(
+                    !spec.modifies_files,
+                    "`{name}` only reads but declares modifies_files"
+                );
+            }
+        }
+    }
+}

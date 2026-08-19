@@ -209,7 +209,7 @@ fn build_capabilities() -> Vec<Capability> {
 }
 
 fn build_command_specs() -> Vec<CommandSpec> {
-    vec![
+    let mut specs = vec![
         CommandSpec {
             name: "search".into(),
             aliases: vec!["s".into(), "grep".into(), "find".into()],
@@ -1117,6 +1117,195 @@ fn build_command_specs() -> Vec<CommandSpec> {
             semantic_tags: vec!["awk".into(), "analyze".into(), "compat".into(), "posix".into()],
             related_commands: vec!["analyze".into()],
         },
+    ];
+    specs.extend(remaining_command_specs());
+    specs
+}
+
+/// Build a command spec from the fields that always differ.
+///
+/// The specs above carry full parameter schemas and worked examples. The ones
+/// built through this do not, and that is deliberate staging: an agent's first
+/// questions are whether a command exists, whether it rewrites files, and
+/// whether it can be asked what it would do first. Answering those for every
+/// command beats answering everything for two thirds of them.
+#[allow(clippy::too_many_arguments)]
+fn spec(
+    name: &str,
+    description: &str,
+    output_type: &str,
+    deterministic: bool,
+    modifies_files: bool,
+    supports_dry_run: bool,
+    supports_explain: bool,
+    related: &[&str],
+) -> CommandSpec {
+    CommandSpec {
+        name: name.into(),
+        aliases: vec![],
+        description: description.into(),
+        long_description: description.into(),
+        parameters: vec![],
+        output_type: output_type.into(),
+        output_schema: serde_json::json!({}),
+        deterministic,
+        modifies_files,
+        supports_dry_run,
+        supports_explain,
+        examples: vec![],
+        semantic_tags: vec![],
+        related_commands: related.iter().map(|s| (*s).to_string()).collect(),
+    }
+}
+
+/// The commands that had no spec at all.
+///
+/// The ontology described eleven of atp's seventeen subcommands while being
+/// the document an agent reads to decide what atp can do. `config` changes
+/// defaults that alter every later invocation, and `mcp` re-exposes the whole
+/// tool surface over JSON-RPC; neither was discoverable here.
+fn remaining_command_specs() -> Vec<CommandSpec> {
+    vec![
+        spec(
+            "repl",
+            "Interactive AQL shell with history.",
+            "Interactive",
+            false,
+            false,
+            false,
+            false,
+            &["query"],
+        ),
+        spec(
+            "watch",
+            "Re-run an AQL query whenever the watched files change. Runs until stopped.",
+            "Stream",
+            false,
+            false,
+            false,
+            false,
+            &["query", "search"],
+        ),
+        spec(
+            "completions",
+            "Print shell completion scripts to stdout.",
+            "Text",
+            true,
+            false,
+            false,
+            false,
+            &[],
+        ),
+        spec(
+            "manpage",
+            "Print a man page to stdout, or write all man pages to a directory.",
+            "Text",
+            true,
+            true,
+            false,
+            false,
+            &[],
+        ),
+        spec(
+            "config",
+            "View and manage ATP configuration. Changes here alter the defaults every later command runs under.",
+            "Config",
+            true,
+            true,
+            false,
+            false,
+            &[],
+        ),
+        spec(
+            "mcp",
+            "Serve the ATP tool surface over JSON-RPC for agents. Runs until stopped, and re-exposes search, transform, query and analyze to whatever connects.",
+            "Stream",
+            false,
+            true,
+            false,
+            false,
+            &["search", "transform", "query", "analyze"],
+        ),
+        spec(
+            "ai",
+            "Natural language to AQL, explanation and suggestion via an LLM. Not deterministic, and sends the prompt to whichever model is configured.",
+            "Text",
+            false,
+            false,
+            false,
+            false,
+            &["query", "explain"],
+        ),
+        spec(
+            "remote",
+            "Run ATP commands on remote hosts over SSH. Declared as modifying because what it runs remotely may be transform.",
+            "Json",
+            false,
+            true,
+            false,
+            false,
+            &["transform", "pipeline"],
+        ),
+        spec(
+            "symbols",
+            "Extract and search symbols in source code.",
+            "Json",
+            true,
+            false,
+            false,
+            false,
+            &["search"],
+        ),
+        spec(
+            "plugin",
+            "Install, remove, scaffold and validate ATP plugins. Installing puts new code where ATP will load it.",
+            "Json",
+            true,
+            true,
+            false,
+            false,
+            &[],
+        ),
+        spec(
+            "index",
+            "Build, search and manage the file index. Building writes the index to disk.",
+            "Json",
+            true,
+            true,
+            false,
+            false,
+            &["search"],
+        ),
+        spec(
+            "debug",
+            "Step through an AQL pipeline, inspecting each stage.",
+            "Interactive",
+            false,
+            false,
+            false,
+            false,
+            &["pipeline", "explain"],
+        ),
+        spec(
+            "notebook",
+            "Execute a literate AQL notebook (Markdown plus AQL). Declared as modifying because a notebook may contain transform stages.",
+            "Json",
+            false,
+            true,
+            false,
+            false,
+            &["pipeline"],
+        ),
+        spec(
+            "distributed",
+            "Scatter/gather pipeline execution across workers. Declared as modifying because the pipeline it runs may contain transform stages.",
+            "Json",
+            false,
+            true,
+            false,
+            false,
+            &["pipeline"],
+        ),
     ]
 }
 
