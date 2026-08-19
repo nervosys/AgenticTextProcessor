@@ -1,0 +1,167 @@
+{
+  "ironstack": "1",
+  "id": "atp",
+  "product": "AgenticTextProcessor",
+  "layer": "tools",
+  "role": "Agentic-first text processing.",
+  "ontology": {
+    "command": "atp ontology",
+    "schema": 1
+  },
+  "capabilities": [
+    {
+      "name": "ontology",
+      "description": "Emit the complete ATP ontology for agent discovery.",
+      "requires_grant": false,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "explain",
+      "description": "Say what a command will do before it runs. The tool's own dry-run affordance.",
+      "requires_grant": false,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "validate",
+      "description": "Check a pattern, expression or pipeline without executing it.",
+      "requires_grant": false,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "completions",
+      "description": "Print shell completion scripts.",
+      "requires_grant": false,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "man",
+      "description": "Print man pages.",
+      "requires_grant": false,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "scope",
+      "description": "List the files the scope configuration selects.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "search",
+      "description": "Find patterns across files, grep-like.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "analyze",
+      "description": "Field-based processing across files, awk-like.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "query",
+      "description": "Execute an AQL query. Read or replace depending on the query.",
+      "requires_grant": true,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "context",
+      "description": "Show surrounding lines for each match.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "compliance",
+      "description": "NIST FIPS and CMMC 2.0 reporting, and SHA-256 integrity hashes.",
+      "requires_grant": false,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "transform",
+      "description": "Pattern-based substitution across files, sed-like. Rewrites content.",
+      "requires_grant": true,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "pipeline",
+      "description": "Run a multi-stage pipeline, which may include transforms.",
+      "requires_grant": true,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "watch",
+      "description": "Re-run a query whenever files change. Runs until stopped.",
+      "requires_grant": true,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "repl",
+      "description": "Interactive AQL shell.",
+      "requires_grant": true,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "config",
+      "description": "View or change ATP configuration.",
+      "requires_grant": true,
+      "budgeted": false,
+      "surfaces": [
+        "cli"
+      ]
+    },
+    {
+      "name": "mcp",
+      "description": "Serve ATP tools over JSON-RPC for agents. Runs until stopped.",
+      "requires_grant": true,
+      "budgeted": true,
+      "surfaces": [
+        "cli"
+      ]
+    }
+  ],
+  "note": "Neither field is derived. This tool enumerates its commands but declares no effect, safety or authority data, so requires_grant and budgeted are judgements made from command semantics and are labelled as such rather than presented as the tool's own position. Replace this file with a derived one if the tool ever declares effects, the way abt, Rodeo, Botnet, MAGE and HyperMachine do. The rule applied: a grant is required to rewrite files, change configuration, or run until stopped. transform and pipeline rewrite content; watch, repl and mcp hold the process open; config changes defaults. search, analyze, context, scope and compliance only read, but each scans a caller-specified file set, so they are budgeted while ungranted. query is granted because AQL expresses both find and replace in one syntax, so the command name alone cannot tell a caller which they are getting -- the conservative reading is the correct one for a grant. ATP ships explain for exactly this ambiguity, and a caller unsure what a query will do should run it first."
+}
